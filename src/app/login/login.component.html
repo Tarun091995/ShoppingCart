@@ -1,0 +1,7 @@
+<form #loginForm= 'ngForm'>
+    <div class = 'form-group'>
+        <label >Name</label>
+        <input type ="text" class="form-control" placeholder ="enter name" ngModel name = "name" required>
+    </div>
+    <button type ="submit" class ="btn btn-primary" (click) = "processForm(loginForm)" [disabled] = 'loginForm.invalid'>Submit</button>
+</form>

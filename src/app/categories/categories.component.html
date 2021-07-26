@@ -1,0 +1,18 @@
+<div *ngIf = appService.products class="row my-5">
+    <div class="card col-md-4 mb-3" *ngFor = 'let product of categoryProducts | Search: appService.searchTerm'>
+        <img src="card-img-top" [src] = "product.img"  [alt] ="product.name">    
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text"> {{product.description}}</p> 
+                <a [routerLink] = "['product', product.id ]" class="btn btn-primary"> More Details</a> 
+                <div  class="mt-3">
+                    <a *ngIf='appService.userName && !inCart(product)' 
+                    [routerLink] = "['product', product.id ]" class="btn btn-primary mr-3">Add To Cart</a>
+                    <a *ngIf='appService.userName && inCart(product)'
+                     [routerLink] = "['product', product.id ]" class="btn btn-primary">Remove From Cart</a>
+                </div>
+            </div>
+      </div>
+    </div>
+    <div>
+    
